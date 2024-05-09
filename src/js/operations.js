@@ -1,6 +1,7 @@
 // Funciones
 
-export function listWithInnerHTML(coders, tbody) {
+export function index(coders, tbody) {
+    tbody.innerHTML = ``;
     coders.forEach(coder => {
         tbody.innerHTML += (`
         
@@ -13,4 +14,14 @@ export function listWithInnerHTML(coders, tbody) {
         
         `);
     });
+};
+
+export function create(coders, name, lastName, email) {
+    const tempCoder = {
+        id: Date.now(),
+        name: name.value,
+        lastName: lastName.value,
+        email: email.value
+    };
+    coders.push(tempCoder);
 };
