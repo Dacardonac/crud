@@ -21,15 +21,15 @@ form.addEventListener('submit', function (event) {
 
 index(coders, tbody);
 
-//eliminar coder por el id
-coders.forEach(coder => {
-    if (coder.id == 2) {
-        coders.splice(coders.indexOf(coder), 1)
-    }
-})
-//mostrar en consola 
-console.log(coders);
+// //eliminar coder por el id
+// coders.forEach(coder => {
+//     if (coder.id == 2) {
+//         coders.splice(coders.indexOf(coder), 1)
+//     }
+// })
+// //mostrar en consola 
+// console.log(coders);
 
-//mostrar en html
-index(coders, tbody)
+// //mostrar en html
+// index(coders, tbody)
 

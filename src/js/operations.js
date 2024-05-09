@@ -9,7 +9,8 @@ export function index(coders, tbody) {
             <th scope="row">${coder.id}</th>
             <td>${coder.name}</td>
             <td>${coder.lastName}</td>
-            <td>${coder.email}</td>
+            <td class="text-lowercase">${coder.email}</td>
+            <td><button type="reset" data-id="${coder.id}" class="btn btn-danger" id="btn-cancel">Delete</button></td>
         </tr>
         
         `);
