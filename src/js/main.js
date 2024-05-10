@@ -4,6 +4,7 @@ import { coders } from '../../public/data/database.js'
 import { index, create } from './operations.js'
 import { showSmallAlertSuccess } from './alerts.js'
 
+
 const tbody = document.querySelector("tbody");
 const table = document.querySelector("table");
 const form = document.getElementById("form");
@@ -25,19 +26,16 @@ form.addEventListener('submit', function (event) {
     event.preventDefault();
 });
 
-table.addEventListener('click', function () {
-    
+table.addEventListener('click', function (event) {
+    if (event.target.classList.contains("btn-danger")) {
+        const idParaEliminar = event.target.getAttribute("data-id");
+
+        coders.forEach((coder, index) => {
+            if (coder.id == idParaEliminar) {
+                coders.splice(index, 1);
+            };
+        });
+        index(coders, tbody);
+        showSmallAlertSuccess("Deleted");
+    };
 });
-
-// //eliminar coder por el id
-// coders.forEach(coder => {
-//     if (coder.id == 2) {
-//         coders.splice(coders.indexOf(coder), 1)
-//     }
-// })
-// //mostrar en consola 
-// console.log(coders);
-
-// //mostrar en html
-// index(coders, tbody)
-
