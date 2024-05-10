@@ -1,25 +1,33 @@
-// Import our custom CSS
 import '../scss/styles.scss'
-
-// Import all of Bootstrap's JS
 import * as bootstrap from 'bootstrap'
 import { coders } from '../../public/data/database.js'
 import { index, create } from './operations.js'
+import { showSmallAlertSuccess } from './alerts.js'
 
 const tbody = document.querySelector("tbody");
+const table = document.querySelector("table");
 const form = document.getElementById("form");
 const name = document.getElementById("name");
 const lastName = document.getElementById("last-name");
 const email = document.getElementById("email");
 
+index(coders, tbody);
+
 form.addEventListener('submit', function (event) {
-    create(coders, name, lastName, email);
+
+    if (form.checkValidity()) {
+        create(name, lastName, email, coders);
+        showSmallAlertSuccess("Saved");
+
+    };
     form.reset();
-    event.preventDefault();
     index(coders, tbody);
+    event.preventDefault();
 });
 
-index(coders, tbody);
+table.addEventListener('click', function () {
+    
+});
 
 // //eliminar coder por el id
 // coders.forEach(coder => {
